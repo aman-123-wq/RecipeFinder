@@ -1,0 +1,83 @@
+<div class="details-container" *ngIf="recipe; else notFound">
+  <button class="back-button" routerLink="/search">← Back to Search</button>
+
+  <div class="recipe-header">
+    <div class="recipe-image">
+      <img [src]="recipe.image" [alt]="recipe.title">
+    </div>
+    
+    <div class="recipe-info">
+      <h1>{{ recipe.title }}</h1>
+      <p class="recipe-description">{{ recipe.description }}</p>
+      
+      <div class="recipe-stats">
+        <div class="stat">
+          <span class="stat-label">Cooking Time</span>
+          <span class="stat-value">⏱️ {{ recipe.cookingTime }} mins</span>
+        </div>
+        
+        <div class="stat">
+          <span class="stat-label">Difficulty</span>
+          <span class="stat-value" [class]="getDifficultyClass(recipe.difficulty)">
+            📊 {{ recipe.difficulty }}
+          </span>
+        </div>
+        
+        <div class="stat">
+          <span class="stat-label">Cuisine</span>
+          <span class="stat-value">🌍 {{ recipe.cuisine }}</span>
+        </div>
+        
+        <div class="stat">
+          <span class="stat-label">Rating</span>
+          <span class="stat-value">⭐ {{ recipe.rating }}/5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button 
+      class="tab-button" 
+      [class.active]="activeTab === 'ingredients'"
+      (click)="setActiveTab('ingredients')">
+      Ingredients
+    </button>
+    <button 
+      class="tab-button" 
+      [class.active]="activeTab === 'instructions'"
+      (click)="setActiveTab('instructions')">
+      Instructions
+    </button>
+  </div>
+
+  <div class="tab-content">
+    <div *ngIf="activeTab === 'ingredients'" class="ingredients-content">
+      <h3>Ingredients Needed</h3>
+      <ul class="ingredients-list">
+        <li *ngFor="let ingredient of recipe.ingredients">
+          <span class="checkbox"></span>
+          {{ ingredient }}
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="activeTab === 'instructions'" class="instructions-content">
+      <h3>Cooking Instructions</h3>
+      <ol class="instructions-list">
+        <li *ngFor="let instruction of recipe.instructions; let i = index">
+          <span class="step-number">{{ i + 1 }}</span>
+          <span class="step-text">{{ instruction }}</span>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <div class="not-found">
+    <h2>Recipe Not Found</h2>
+    <p>The recipe you're looking for doesn't exist.</p>
+    <button class="cta-button" routerLink="/search">Browse All Recipes</button>
+  </div>
+</ng-template>

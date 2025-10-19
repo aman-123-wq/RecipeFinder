@@ -1,0 +1,110 @@
+<div class="search-container">
+  <div class="search-header">
+    <h1>Find Your Perfect Recipe</h1>
+    <p>Search through our collection of 50+ delicious recipes</p>
+  </div>
+
+  <div class="search-controls">
+    <!-- Enhanced Search Bar -->
+    <div class="search-bar">
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery" 
+        placeholder="Search by recipe name, ingredients, or cuisine..."
+        (input)="searchRecipes()"
+        class="search-input">
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <!-- Recipe Dropdown -->
+    <div class="recipe-dropdown">
+      <select [(ngModel)]="selectedRecipe" (change)="onRecipeSelect()">
+        <option value="">Select from 50+ recipes...</option>
+        <option *ngFor="let recipe of allRecipes" [value]="recipe.id">
+          {{ recipe.title }} ({{ recipe.cuisine }})
+        </option>
+      </select>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <div class="filter-group">
+        <label>Cuisine:</label>
+        <select [(ngModel)]="selectedCuisine" (change)="applyFilters()">
+          <option value="all">All Cuisines</option>
+          <option *ngFor="let cuisine of cuisines" [value]="cuisine">
+            {{ cuisine }}
+          </option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Difficulty:</label>
+        <select [(ngModel)]="selectedDifficulty" (change)="applyFilters()">
+          <option value="all">All Levels</option>
+          <option *ngFor="let difficulty of difficulties" [value]="difficulty">
+            {{ difficulty }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <button class="clear-btn" (click)="clearFilters()">Clear Filters</button>
+  </div>
+
+  <!-- Featured Dishes -->
+  <div class="featured-dishes" *ngIf="!searchQuery && featuredDishes.length > 0">
+    <h3>Popular Dishes</h3>
+    <div class="dishes-grid">
+      <div class="dish-card" *ngFor="let recipe of featuredDishes" [routerLink]="'/recipe/' + recipe.id">
+        <img [src]="recipe.image" [alt]="recipe.title">
+        <h4>{{ recipe.title }}</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Results -->
+  <div class="search-results" *ngIf="searchQuery || selectedRecipe">
+    <div class="results-info">
+      <p>Found {{ filteredRecipes.length }} recipes</p>
+    </div>
+
+    <div class="recipes-list">
+      <div class="recipe-item" *ngFor="let recipe of filteredRecipes" [routerLink]="'/recipe/' + recipe.id">
+        <div class="recipe-content">
+          <h3>{{ recipe.title }}</h3>
+          <p class="recipe-description">{{ recipe.description }}</p>
+          
+          <div class="recipe-meta">
+            <span class="cuisine-tag">{{ recipe.cuisine }}</span>
+            <span class="difficulty-tag" [class]="'difficulty-' + recipe.difficulty.toLowerCase()">
+              {{ recipe.difficulty }}
+            </span>
+          </div>
+
+          <div class="recipe-details">
+            <span>⏱️ {{ recipe.cookingTime }} mins</span>
+            <span>⭐ {{ recipe.rating }}/5</span>
+          </div>
+
+          <div class="ingredients-preview">
+            <strong>Ingredients:</strong> 
+            {{ recipe.ingredients.slice(0, 4).join(', ') }}...
+          </div>
+
+          <div class="instructions-preview">
+            <strong>Method:</strong> 
+            {{ recipe.instructions[0] }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Results -->
+  <div class="no-results" *ngIf="filteredRecipes.length === 0 && (searchQuery || selectedRecipe)">
+    <h3>No recipes found</h3>
+    <p>Try adjusting your search criteria or filters</p>
+    <button (click)="clearFilters()" class="cta-button">Show All Recipes</button>
+  </div>
+</div>

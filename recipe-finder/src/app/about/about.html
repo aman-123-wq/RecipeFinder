@@ -1,0 +1,66 @@
+<div class="about-container">
+  <section class="about-hero">
+    <h1>About Recipe Finder</h1>
+    <p class="hero-subtitle">Your ultimate companion in the kitchen</p>
+  </section>
+
+  <section class="mission-section">
+    <div class="mission-content">
+      <h2>Our Mission</h2>
+      <p>
+        Recipe Finder was created to make cooking accessible and enjoyable for everyone. 
+        Whether you're a beginner cook or a seasoned chef, our platform helps you discover 
+        amazing recipes that suit your taste, time constraints, and skill level.
+      </p>
+      <p>
+        We believe that good food brings people together, and we're here to help you 
+        create memorable meals for yourself, your family, and your friends.
+      </p>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2>Why Choose Recipe Finder?</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">{{ feature.icon }}</div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="stat-item">
+      <h3>50+</h3>
+      <p>Recipes</p>
+    </div>
+    <div class="stat-item">
+      <h3>10+</h3>
+      <p>Cuisine Types</p>
+    </div>
+    <div class="stat-item">
+      <h3>100%</h3>
+      <p>Free to Use</p>
+    </div>
+    <div class="stat-item">
+      <h3>24/7</h3>
+      <p>Available</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>Get In Touch</h2>
+    <p>Have questions, suggestions, or want to contribute recipes? We'd love to hear from you!</p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-icon">📧</span>
+        <span>contact@recipefinder.com</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📱</span>
+        <span>+1 (555) 123-RECIPE</span>
+      </div>
+    </div>
+  </section>
+</div>

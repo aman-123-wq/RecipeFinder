@@ -1,0 +1,12 @@
+<nav class="navbar">
+  <h1>🍳 Recipe Finder</h1>
+  <div class="nav-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="/search" routerLinkActive="active">Search Recipes</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+  </div>
+</nav>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

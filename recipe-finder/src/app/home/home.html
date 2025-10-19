@@ -1,0 +1,40 @@
+<div class="home-container">
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Discover Amazing Recipes</h1>
+      <p>Find the perfect recipe for any occasion. From quick weekday meals to gourmet dinners.</p>
+      <button class="cta-button" routerLink="/search">Explore Recipes</button>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <h2>Featured Recipes</h2>
+    <div class="recipe-grid">
+      <div class="recipe-card" *ngFor="let recipe of featuredRecipes" [routerLink]="'/recipe/' + recipe.id">
+        <img [src]="recipe.image" [alt]="recipe.title">
+        <div class="recipe-info">
+          <h3>{{ recipe.title }}</h3>
+          <div class="recipe-meta">
+            <span>⏱️ {{ recipe.time }}</span>
+            <span>📊 {{ recipe.difficulty }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="stat-item">
+      <h3>50+</h3>
+      <p>Recipes</p>
+    </div>
+    <div class="stat-item">
+      <h3>15</h3>
+      <p>Cuisines</p>
+    </div>
+    <div class="stat-item">
+      <h3>1000+</h3>
+      <p>Happy Cooks</p>
+    </div>
+  </section>
+</div>
