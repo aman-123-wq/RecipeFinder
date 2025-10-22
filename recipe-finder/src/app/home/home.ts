@@ -14,7 +14,7 @@ export class HomeComponent {
     {
       id: 1,
       title: 'Masala Dosa',
-      image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500&h=500&fit=crop',
+      image: 'https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg',
       time: '20 mins',
       difficulty: 'Medium'
     },

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 export interface Recipe {
   id: number;
   title: string;
@@ -1368,7 +1368,7 @@ export class RecipeService {
       price: 220
     }
   ];
-
+ constructor(private http: HttpClient) { }
   getAllRecipes(): Recipe[] {
     return this.recipes;
   }
@@ -1390,10 +1390,17 @@ export class RecipeService {
     );
   }
 
-  getRecipesByCuisine(cuisine: string): Recipe[] {
+    getRecipesByCuisine(cuisine: string): Recipe[] {
     if (cuisine === 'all') return this.recipes;
     return this.recipes.filter(recipe => 
       recipe.cuisine.toLowerCase() === cuisine.toLowerCase()
     );
   }
-}
+
+  testBackendConnection(): void {
+    this.http.get('http://localhost:3000/api/recipes').subscribe({
+      next: (data: any) => console.log('✅ Backend connected:', data),
+      error: (error: any) => console.log('❌ Backend not available, using local data')
+    });
+  }
+}  

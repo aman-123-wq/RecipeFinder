@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { RecipeService, Recipe } from '../services/recipe.service';
+
+// Declare jQuery
+declare var $: any;
 
 @Component({
   selector: 'app-search',
@@ -11,7 +14,7 @@ import { RecipeService, Recipe } from '../services/recipe.service';
   templateUrl: './search.html',
   styleUrls: ['./search.css']
 })
-export class SearchComponent {
+export class SearchComponent implements AfterViewInit {
   searchQuery: string = '';
   allRecipes: Recipe[] = [];
   filteredRecipes: Recipe[] = [];
@@ -31,6 +34,61 @@ export class SearchComponent {
     this.featuredDishes = this.allRecipes
       .filter(recipe => recipe.image && recipe.image.trim() !== '')
       .slice(0, 4);
+
+    // Test backend connection
+    this.recipeService.testBackendConnection();
+  }
+
+  // JQUERY INITIALIZATION
+  ngAfterViewInit(): void {
+    this.initializeJQueryEffects();
+  }
+
+  // JQUERY DOM MANIPULATION - FIXED WITH ARROW FUNCTIONS
+  initializeJQueryEffects(): void {
+    // Add animation to featured dishes - FIXED
+    $('.dish-card').hover(
+      (event: any) => {
+        $(event.currentTarget).css('transform', 'scale(1.05)');
+      },
+      (event: any) => {
+        $(event.currentTarget).css('transform', 'scale(1)');
+      }
+    );
+
+    // Add click counter to search button - FIXED
+    let clickCount = 0;
+    $('.search-input').on('keyup', () => {
+      clickCount++;
+      console.log(`🔍 Search input used ${clickCount} times (jQuery DOM Manipulation)`);
+    });
+
+    // Add smooth scrolling to search results - FIXED
+    $('.recipe-item').click(() => {
+      $('html, body').animate({
+        scrollTop: 0
+      }, 500);
+    });
+
+    // Change background color of filters on selection - FIXED
+    $('select').change((event: any) => {
+      $(event.currentTarget).css('background-color', '#e8f5e8');
+      setTimeout(() => {
+        $(event.currentTarget).css('background-color', '');
+      }, 1000);
+    });
+
+    // Add pulse animation to featured dishes title - FIXED
+    $('.featured-dishes h3').hover(
+      (event: any) => {
+        $(event.currentTarget).css('animation', 'pulse 0.5s');
+      },
+      (event: any) => {
+        $(event.currentTarget).css('animation', 'none');
+      }
+    );
+
+    console.log('✅ jQuery DOM manipulation initialized!');
   }
 
   searchRecipes(): void {

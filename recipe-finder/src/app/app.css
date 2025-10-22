@@ -17,6 +17,7 @@
 .nav-links {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 .nav-links a {
@@ -36,6 +37,56 @@
   font-weight: bold;
   color: #e74c3c;
   background-color: #34495e;
+}
+
+/* ADD AUTH LINKS STYLES */
+.auth-links {
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+  border-left: 1px solid #34495e;
+  padding-left: 20px;
+}
+
+.login-btn {
+  padding: 8px 20px;
+  border: 2px solid #3498db;
+  border-radius: 25px;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #3498db;
+  color: white;
+}
+
+.login-btn.active {
+  background: #3498db;
+  color: white;
+}
+
+.signup-btn {
+  padding: 8px 20px;
+  background: #e74c3c;
+  border: 2px solid #e74c3c;
+  border-radius: 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+  background: #c0392b;
+  border-color: #c0392b;
+}
+
+.signup-btn.active {
+  background: #c0392b;
+  border-color: #c0392b;
 }
 
 .main-content {
