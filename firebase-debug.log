@@ -1,0 +1,53 @@
+[debug] [2025-10-19T16:58:34.690Z] ----------------------------------------------------------------------
+[debug] [2025-10-19T16:58:34.701Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Welcome\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-10-19T16:58:34.702Z] CLI Version:   14.19.1
+[debug] [2025-10-19T16:58:34.702Z] Platform:      win32
+[debug] [2025-10-19T16:58:34.702Z] Node Version:  v20.19.5
+[debug] [2025-10-19T16:58:34.702Z] Time:          Sun Oct 19 2025 22:28:34 GMT+0530 (India Standard Time)
+[debug] [2025-10-19T16:58:34.702Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-19T16:58:34.705Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\IMMANUEL\VELTECH\3yr studies\wbad lab\RecipeFinder
+
+[debug] [2025-10-19T16:58:35.750Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-10-19T16:58:35.751Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2025-10-19T16:59:34.821Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-10-19T16:59:34.821Z] > authorizing via signed-in user (vtu24334@veltech.edu.in)
+[debug] [2025-10-19T16:59:34.822Z] Checked if tokens are valid: false, expires at: 1760185674076
+[debug] [2025-10-19T16:59:34.822Z] Checked if tokens are valid: false, expires at: 1760185674076
+[debug] [2025-10-19T16:59:34.823Z] > refreshing access token with scopes: []
+[debug] [2025-10-19T16:59:34.824Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-19T16:59:34.824Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-19T16:59:35.091Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-19T16:59:35.091Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-19T16:59:35.115Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-10-19T16:59:35.743Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-10-19T16:59:35.743Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-10-19T17:00:04.810Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\Welcome\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:524:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1128:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:267:20)
+    at ReadStream.emit (node:events:536:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:371:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
