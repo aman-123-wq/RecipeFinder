@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/recipe-finder",
+    "public": "dist/recipe-finder/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
